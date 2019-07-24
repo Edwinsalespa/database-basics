@@ -15,6 +15,7 @@ city varchar(255) null,
 constraint primary key (person_id)
 );
 
+/*insercion de datos a la tabla people*/
 insert into platziblog.people (last_name,first_name,address,city)
 value ("salinas", "edwin", "calle1", "medellin");
 
