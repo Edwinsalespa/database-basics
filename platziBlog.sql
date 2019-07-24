@@ -41,6 +41,24 @@ VIEW platziblog.platzi_people AS
         platziblog.people.address AS address,
         platziblog.people.city AS city
     FROM
-        platziblog.people
+        platziblog.people;
+
+/*utilizacion de alter*/
+
+/*insercion de colomna a la tabla*/
+alter table people 
+add column date_of_birth datetime null after city;
+
+/*altera el tipo de dato de una columna*/
+ALTER TABLE platziblog.people 
+CHANGE COLUMN date_of_birth date_of_birth VARCHAR(30) NULL DEFAULT NULL;
+
+/*elimina la columna*/
+ALTER TABLE platziblog.people 
+DROP COLUMN date_of_birth;
+
+
+
+
 
 
