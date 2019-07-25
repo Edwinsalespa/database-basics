@@ -57,6 +57,19 @@ CHANGE COLUMN date_of_birth date_of_birth VARCHAR(30) NULL DEFAULT NULL;
 ALTER TABLE platziblog.people 
 DROP COLUMN date_of_birth;
 
+/*actualizar datos*/
+update people
+set last_name = "chavez", city = "merida"
+where person_id =1;
+
+/*acion peligrosa que puede generar conflictos*/
+update people
+set first_name = "juan"
+where city = "merida";
+
+select first_name, last_name
+from people;
+
 
 
 
