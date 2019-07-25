@@ -70,6 +70,8 @@ where city = "merida";
 select first_name, last_name
 from people;
 
+/*se da por teminado los primeros pasos de base de datos*/
+
 
 
 
