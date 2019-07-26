@@ -70,6 +70,11 @@ where city = "merida";
 select first_name, last_name
 from people;
 
+/*eliminar sregistro de una tabla*/
+delete from people
+where person_id =1;
+
+
 /*se da por teminado los primeros pasos de base de datos*/
 
 
