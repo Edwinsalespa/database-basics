@@ -1,11 +1,11 @@
-/*creacion de base de datos platziBlog*/
-create database platziblog default character set utf8 ;
+/*creacion de base de datos test_db*/
+create database test_db default character set utf8 ;
 
-/*linia para utilizar platziBlog*/
-use platziblog;
+/*linia para utilizar test_db*/
+use test_db;
 
 /*creacion de tabla people*/
-create table platziblog.people
+create table test_db.people
 (
 person_id int not null auto_increment,
 last_name varchar(255) null,
@@ -16,32 +16,32 @@ constraint primary key (person_id)
 );
 
 /*insercion de datos a la tabla people*/
-insert into platziblog.people (last_name,first_name,address,city)
+insert into test_db.people (last_name,first_name,address,city)
 value ("salinas", "edwin", "calle1", "medellin");
 
-insert into platziblog.people (last_name,first_name,address,city)
+insert into test_db.people (last_name,first_name,address,city)
 value ("salinas", "alex", "carrera 2", "pitalito");
 
-insert into platziblog.people (last_name,first_name,address,city)
+insert into test_db.people (last_name,first_name,address,city)
 value ("hernandez", "yenny", "carrera al cielo", "medellin");
 
 /*muestra la tabla people*/
-select * from platziblog.people;
+select * from test_db.people;
 
-/*crea una vista con el nombre de platzi_people de la tabla people de la base de datos platziBlog*/
+/*crea una vista con el nombre de platzi_people de la tabla people de la base de datos test_db*/
 CREATE 
     ALGORITHM = UNDEFINED 
     DEFINER = root@localhost 
     SQL SECURITY DEFINER
-VIEW platziblog.platzi_people AS
+VIEW test_db.platzi_people AS
     SELECT 
-        platziblog.people.person_id AS person_id,
-        platziblog.people.last_name AS last_name,
-        platziblog.people.first_name AS first_name,
-        platziblog.people.address AS address,
-        platziblog.people.city AS city
+        test_db.people.person_id AS person_id,
+        test_db.people.last_name AS last_name,
+        test_db.people.first_name AS first_name,
+        test_db.people.address AS address,
+        test_db.people.city AS city
     FROM
-        platziblog.people;
+        test_db.people;
 
 /*utilizacion de alter*/
 
@@ -50,11 +50,11 @@ alter table people
 add column date_of_birth datetime null after city;
 
 /*altera el tipo de dato de una columna*/
-ALTER TABLE platziblog.people 
+ALTER TABLE test_db.people 
 CHANGE COLUMN date_of_birth date_of_birth VARCHAR(30) NULL DEFAULT NULL;
 
 /*elimina la columna*/
-ALTER TABLE platziblog.people 
+ALTER TABLE test_db.people 
 DROP COLUMN date_of_birth;
 
 /*actualizar datos*/
