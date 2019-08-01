@@ -30,7 +30,7 @@ create table usuarios
   unique key email_unique (email)
 );
 
-create table posts 
+create table post
 (
   id int not null auto_increment,
   titulo varchar(130) not null,
@@ -42,13 +42,27 @@ create table posts
   constraint primary key (id),
   constraint foreign key (categoria_id) references categorias (id) on delete no action on update no action,
   constraint foreign key (usuario_id) references usuarios (id) on delete no action on update cascade
-  )
+  );
 
+create table comentarios
+(
+  id int not null auto_increment,
+  cuerpo_comentario text not null,
+  usuario_id int not null,
+  post_id int not null,
+  primary key (id),
+  constraint foreign key (post_id) references post (id) on delete no action on update no action,
+  constraint foreign key (usuario_id) references usuarios (id) on delete no action on update no action
+);
 
-
-
-
-
+create table pots_etiquetas
+(
+post_id int not null,
+etiquetas_id int not null,
+constraint foreign key (post_id) references post (id) on delete no action on update no action,
+constraint foreign key (etiquetas_id) references etiquetas (id) on delete no action on update no action,
+constraint primary key (post_id,etiquetas_id)
+);
 
 
 
